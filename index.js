@@ -14,7 +14,7 @@ let salarioMinimo = [
     {ano: 2020, salario: 1045.00}
 ];
 
-let inflação = [
+let inflacao = [
     {ano: 2010, ipca: 5.91},
     {ano: 2011, ipca: 6.50},
     {ano: 2012, ipca:5.48},
@@ -31,19 +31,33 @@ let inflação = [
 console.log("Escolha uma das alternativas: \n\n");
 
 console.log("1 - Listar os salarios minimos de 2010 à 2020");
-console.log("Listar o indice IPCA de 2010 a 2020");
-console.log("Comparação entre o percentual de aumento salarial e o IPCA");
+console.log("2 - Listar o indice IPCA de 2010 a 2020");
+console.log("3 - Comparação entre o percentual de aumento salarial e o IPCA\n")
 
-let escolhaOpcao = dadosUser.question("Digite o numero da sua escolha: \n"); 
+let escolhaOpcao = dadosUser.question("Digite o numero da sua escolha: "); 
 
 if(escolhaOpcao ==  1){
-for (let salarios in salarioMinimo){
-    let ano = salarioMinimo[salarios].ano;
-    let salario = salarioMinimo[salarios].salario;
-    console.log("Ano: " + ano);
-    console.log("Salario minimo: R$" + salario + ",00")
-    console.log("\n")
-}
+    for (let salarios in salarioMinimo){
+
+        let ano = salarioMinimo[salarios].ano;
+        let salario = salarioMinimo[salarios].salario;
+
+        console.log("Ano: ".padEnd(25, ".") + ano);
+        console.log("Salario minimo: ".padEnd(25, ".")+"R$ " + salario + ",00")
+        console.log("\n")
+    }
+}else if(escolhaOpcao == 2){
+    for (let infla in inflacao){
+        
+        let anoInfla = inflacao[infla].ano;
+        let ipcaInfla = inflacao[infla].ipca;
+
+        console.log("Ano: ".padEnd(25, ".") + anoInfla);
+        console.log("Inflação IPCA: ".padEnd(25, ".") + ipcaInfla );
+        console.log("\n")
+    } 
+}else if(escolhaOpcao == 3){
+
 }else{
     console.log("Opção invalida!")
 };
