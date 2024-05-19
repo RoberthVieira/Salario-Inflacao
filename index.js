@@ -57,7 +57,39 @@ if(escolhaOpcao ==  1){
         console.log("\n")
     } 
 }else if(escolhaOpcao == 3){
+    for(let i = 0; i <= salarioMinimo.length-1; i++)
+        {
+            let ano = salarioMinimo[i].ano;
+            let salario = salarioMinimo[i].salario;
+            let percentualCrescimento;
+            let crescimentoFormatado;
 
+            if(i > 0)
+            {
+                let salarioAnterior = salarioMinimo[i-1].salario;
+                let diferenca = salario - salarioAnterior;
+
+                percentualCrescimento = (diferenca / salarioAnterior) * 100;
+
+                crescimentoFormatado = percentualCrescimento.toFixed(2).replace(".",",")+"%";
+            }
+            else
+            {
+                crescimentoFormatado = "-";
+            }
+
+            let ipca = inflacao[i].ipca;
+
+            let salarioFormatado = salario.toFixed(2).replace(".",",");
+            let ipcaFormatado = ipca.toFixed(2).replace(".",",");
+    
+        
+            console.log("\n");
+            console.log("Ano: ".padEnd(25, ".") + ano);
+            console.log("Salario mínimo: R$".padEnd(25, ".")+ salarioFormatado)
+            console.log("Crescimento Salarial: ".padEnd(25, ".") + crescimentoFormatado);
+            console.log("Inflação IPCA: ".padEnd(25, ".") +ipcaFormatado + "%");
+        }
 }else{
     console.log("Opção invalida!")
 };
